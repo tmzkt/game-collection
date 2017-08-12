@@ -24,7 +24,7 @@ function checkForWin () {
 
   // You can use this function call to declare a winner (once you've
   // detected that they've won, that is!)
-  if (board.cells.reduce((x,y) => x && (!y.hidden || y.isMarked), true)) {
+  if (board.cells.reduce((x,y) => x && (!y.hidden || (y.isMarked && y.isMine)), true)) {
     lib.displayMessage('You win!')
 	removeListeners()
   }
