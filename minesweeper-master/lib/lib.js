@@ -80,6 +80,7 @@ function showCell (evt) {
   if (cell.surroundingMines === 0) {
     showSurrounding(evt.target)
   }
+  checkForWin()
 }
 
 function markCell (evt) {
@@ -88,6 +89,7 @@ function markCell (evt) {
   var idx = getCellIndex(getRow(evt.target), getCol(evt.target))
   var cell = board.cells[idx]
   cell.isMarked = cell.isMarked ? false : true
+  checkForWin()
 }
 
 // Array.includes polyfill

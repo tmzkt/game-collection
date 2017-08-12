@@ -1,6 +1,15 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
-var board = { cells:[{row:0, col:0},{row:0, col:1},{row:1, col:0},{row:1, col:1}] }
+var board = { cells:
+[{row:0, col:0, isMine:true, hidden:true},
+ {row:0, col:1, isMine:false, hidden:true},
+ {row:0, col:2, isMine:false, hidden:true},
+ {row:1, col:0, isMine:false, hidden:true},
+ {row:1, col:1, isMine:true, hidden:true},
+ {row:1, col:2, isMine:false, hidden:true},
+ {row:2, col:0, isMine:false, hidden:true},
+ {row:2, col:1, isMine:false, hidden:true},
+ {row:2, col:2, isMine:true, hidden:true}] }
 
 function startGame () {
   // Don't remove this function call: it makes the game work!
@@ -15,7 +24,10 @@ function checkForWin () {
 
   // You can use this function call to declare a winner (once you've
   // detected that they've won, that is!)
-  //   lib.displayMessage('You win!')
+  if (board.cells.reduce((x,y) => x && (!y.hidden || y.isMarked), true)) {
+    lib.displayMessage('You win!')
+	removeListeners()
+  }
 }
 
 // Define this function to count the number of mines around the cell
