@@ -10,11 +10,18 @@ function initBoard () {
     return null
   }
   displayMessage("Let\'s play!")
+  assignNumbers()
   board.cells.sort(cellCompare)
   var boardNode = document.getElementsByClassName('board')[0]
   drawBoard(boardNode)
   addListeners(boardNode)
   return true
+}
+
+function assignNumbers() {
+  for (x in board.cells) {
+    board.cells[x].surroundingMines = countSurroundingMines(board.cells[x])
+  }
 }
 
 // Draw board based on number of cells and an assumption about how much 
