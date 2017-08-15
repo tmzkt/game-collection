@@ -4,7 +4,7 @@ var board = { cells: [] }
 
 function startGame () {
   // create board
-  var rows = 3, cols = 3
+  var rows = 6, cols = 6
   for (i = 0; i < rows; i++) {
     for (j = 0; j < cols; j++) {
 	  var isMine = Math.random() < 0.2 ? true : false
