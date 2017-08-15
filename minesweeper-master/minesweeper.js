@@ -1,17 +1,24 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
-var board = { cells:
-[{row:0, col:0, isMine:true, hidden:true},
- {row:0, col:1, isMine:false, hidden:true},
- {row:0, col:2, isMine:false, hidden:true},
- {row:1, col:0, isMine:false, hidden:true},
- {row:1, col:1, isMine:true, hidden:true},
- {row:1, col:2, isMine:false, hidden:true},
- {row:2, col:0, isMine:false, hidden:true},
- {row:2, col:1, isMine:false, hidden:true},
- {row:2, col:2, isMine:true, hidden:true}] }
+var board = { cells: [] }
 
 function startGame () {
+  // create board
+  var rows = 3, cols = 3
+  for (i = 0; i < rows; i++) {
+    for (j = 0; j < cols; j++) {
+	  var isMine = Math.random() < 0.2 ? true : false
+	  board.cells.push({row: i, col: j, isMine:isMine, hidden:true})
+	}
+  }
+  
+  // place mines
+  var mineLocations = []
+  for (i = 0; i < Math.floor(rows * cols * 0.2); i++) {
+    
+  }
+  
+
   // Don't remove this function call: it makes the game work!
   lib.initBoard()
 }
