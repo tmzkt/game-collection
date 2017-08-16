@@ -11,13 +11,6 @@ function startGame () {
 	  board.cells.push({row: i, col: j, isMine:isMine, hidden:true})
 	}
   }
-  
-  // place mines
-  var mineLocations = []
-  for (i = 0; i < Math.floor(rows * cols * 0.2); i++) {
-    
-  }
-  
 
   // Don't remove this function call: it makes the game work!
   lib.initBoard()
