@@ -5,6 +5,7 @@ var lib = {
 }
 
 function initBoard () {
+  createBoard()
   if (!tests.boardValid() || !tests.cellsValid()) {
     displayMessage("<em>These hints are designed to help you build your board object bit by bit. If you're seeing one, don't worry: you didn't do anything wrong, you're just not finished yet!</em>", 'notes')
     return null
@@ -16,6 +17,16 @@ function initBoard () {
   drawBoard(boardNode)
   addListeners(boardNode)
   return true
+}
+
+function createBoard() {
+  var rows = 6, cols = 6
+  for (i = 0; i < rows; i++) {
+    for (j = 0; j < cols; j++) {
+	  var isMine = Math.random() < 0.2 ? true : false
+	  board.cells.push({row: i, col: j, isMine:isMine, hidden:true})
+	}
+  }
 }
 
 function assignNumbers() {
