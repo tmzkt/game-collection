@@ -1,9 +1,3 @@
-var lib = {
-  initBoard: initBoard,
-  displayMessage: displayMessage,
-  getSurroundingCells: getSurroundingCells
-}
-
 function initBoard () {
   createBoard()
   if (!tests.boardValid() || !tests.cellsValid()) {
