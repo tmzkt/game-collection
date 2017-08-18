@@ -5,7 +5,6 @@ function initBoard () {
     return null
   }
   displayMessage("Let\'s play!")
-  assignNumbers()
   board.cells.sort(cellCompare)
   var boardNode = document.getElementsByClassName('board')[0]
   drawBoard(boardNode)
@@ -21,9 +20,6 @@ function createBoard() {
 	  board.cells.push({row: i, col: j, isMine:isMine, hidden:true})
 	}
   }
-}
-
-function assignNumbers() {
   for (x in board.cells) {
     board.cells[x].surroundingMines = countSurroundingMines(board.cells[x])
   }
