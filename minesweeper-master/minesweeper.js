@@ -12,6 +12,7 @@ function checkForWin () {
 	removeListeners()
   }
 }
+
 function countSurroundingMines (cell) {
   var surrounding = getSurroundingCells(cell.row, cell.col)
   var count = 0
@@ -22,4 +23,3 @@ function countSurroundingMines (cell) {
   }
   return count
 }
-
