@@ -13,16 +13,33 @@ function initBoard () {
 }
 
 function createBoard() {
-  var rows = 6, cols = 6
+  var rows = 6, cols = 6, numOfMines = 9
+  var mineLocations = getMineLocations(rows, cols, numOfMines)
   for (i = 0; i < rows; i++) {
     for (j = 0; j < cols; j++) {
-	  var isMine = Math.random() < 0.2 ? true : false
+	  var isMine = mineLocations.indexOf(i * rows + j) >= 0
 	  board.cells.push({row: i, col: j, isMine:isMine, hidden:true})
 	}
   }
   for (x in board.cells) {
     board.cells[x].surroundingMines = countSurroundingMines(board.cells[x])
   }
+}
+
+function getMineLocations(rows, cols, numOfMines) {
+  var numOfCells = rows * cols
+  if (numOfMines > numOfCells) {
+    throw "number of mines exceed number of cells"
+  }
+  var mineLocations = []
+  while (mineLocations.length < numOfMines) {
+    var mineLocation = Math.floor(Math.random() * numOfCells)
+	if (mineLocations.indexOf(mineLocation) < 0) {
+	  mineLocations.push(mineLocation)
+	}
+  }
+  console.log(mineLocations)
+  return mineLocations
 }
 
 // Draw board based on number of cells and an assumption about how much 
