@@ -4,4 +4,4 @@ Games are written using Javascript with some HTML and CSS.
 Adapted from existing source code.
 
 - Snake
-- Minesweeper
+- Minesweeper (changes are still being applied)
