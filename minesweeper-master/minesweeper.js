@@ -3,7 +3,33 @@ document.addEventListener('DOMContentLoaded', startGame)
 var board = { cells: [] }
 
 function startGame () {
+  initDifficulty()
   initBoard()
+}
+
+function initDifficulty () {
+  var hardBtn = document.createElement("button")
+  hardBtn.innerText = "Hard"
+  hardBtn.onclick = function() {
+    alert("hard");
+  };
+  
+  var medBtn = document.createElement("button")
+  medBtn.innerText = "Medium"
+  medBtn.onclick = function() {
+    alert("medium");
+  };
+  
+  var easyBtn = document.createElement("button")
+  easyBtn.innerText = "Easy"
+  easyBtn.onclick = function() {
+    alert("easy");
+  };
+
+  var difficultyNode = document.getElementById('difficulty')
+  difficultyNode.appendChild(hardBtn)
+  difficultyNode.appendChild(medBtn)
+  difficultyNode.appendChild(easyBtn)
 }
 
 function checkForWin () {
