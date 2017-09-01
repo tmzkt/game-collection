@@ -1,5 +1,6 @@
-function initBoard () {
-  createBoard()
+function initBoard (rows, cols, numOfMines) {
+  board.cells = [];
+  createBoard(rows, cols, numOfMines)
   if (!tests.boardValid() || !tests.cellsValid()) {
     displayMessage("<em>These hints are designed to help you build your board object bit by bit. If you're seeing one, don't worry: you didn't do anything wrong, you're just not finished yet!</em>", 'notes')
     return null
@@ -12,8 +13,7 @@ function initBoard () {
   return true
 }
 
-function createBoard() {
-  var rows = 6, cols = 6, numOfMines = 9
+function createBoard(rows, cols, numOfMines) {
   var mineLocations = getMineLocations(rows, cols, numOfMines)
   for (i = 0; i < rows; i++) {
     for (j = 0; j < cols; j++) {
@@ -45,6 +45,9 @@ function getMineLocations(rows, cols, numOfMines) {
 // Draw board based on number of cells and an assumption about how much 
 // space should be allowed for each cell.
 function drawBoard (boardNode) {
+  while (boardNode.hasChildNodes()) {
+    boardNode.removeChild(boardNode.firstChild);
+  }
   boardNode.style.width = Math.sqrt(board.cells.length) * 85 + 'px'
   board.cells.reduce(cellsToNodes, boardNode)
 }

@@ -4,26 +4,26 @@ var board = { cells: [] }
 
 function startGame () {
   initDifficulty()
-  initBoard()
+  initBoard(4, 4, 4)
 }
 
 function initDifficulty () {
   var hardBtn = document.createElement("button")
   hardBtn.innerText = "Hard"
   hardBtn.onclick = function() {
-    alert("hard");
+    initBoard(6, 6, 9)
   };
   
   var medBtn = document.createElement("button")
   medBtn.innerText = "Medium"
   medBtn.onclick = function() {
-    alert("medium");
+    initBoard(5, 5, 6)
   };
   
   var easyBtn = document.createElement("button")
   easyBtn.innerText = "Easy"
   easyBtn.onclick = function() {
-    alert("easy");
+    initBoard(4, 4, 4)
   };
 
   var difficultyNode = document.getElementById('difficulty')
