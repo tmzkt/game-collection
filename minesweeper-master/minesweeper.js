@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
 var board = { cells: [] }
+var lives = 3
 
 function startGame () {
   initDifficulty()
+  initLives()
   initBoard(4, 4, 4)
 }
 
@@ -13,14 +15,19 @@ function initDifficulty () {
   createDifficultyButton("Easy", 4, 4, 4)
 }
 
+function initLives() {
+  var livesNode = document.getElementById('lives')
+  livesNode.innerHTML = "Lives remaining: " + lives
+}
+
 function createDifficultyButton(name, rows, cols, numOfMines) {
-  var bugton = document.createElement("button")
-  bugton.innerText = name
-  bugton.onclick = function() {
+  var button = document.createElement("button")
+  button.innerText = name
+  button.onclick = function() {
     initBoard(rows, cols, numOfMines)
   };
   var difficultyNode = document.getElementById('difficulty')
-  difficultyNode.appendChild(bugton)
+  difficultyNode.appendChild(button)
 }
 
 function checkForWin () {

@@ -99,9 +99,13 @@ function showCell (evt) {
   evt.target.classList.remove('hidden')
   evt.target.classList.remove('marked')
   if (evt.target.classList.contains('mine')) {
-    displayMessage('BOOM!')
-    revealMines()
-    removeListeners()
+    lives--
+	initLives()
+    if (lives <= 0) {
+        displayMessage('BOOM!')
+        revealMines()
+        removeListeners()
+    }
     return
   }
   setInnerHTML(cell)
