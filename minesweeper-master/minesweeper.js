@@ -8,28 +8,9 @@ function startGame () {
 }
 
 function initDifficulty () {
-  var hardBtn = document.createElement("button")
-  hardBtn.innerText = "Hard"
-  hardBtn.onclick = function() {
-    initBoard(6, 6, 9)
-  };
-  
-  var medBtn = document.createElement("button")
-  medBtn.innerText = "Medium"
-  medBtn.onclick = function() {
-    initBoard(5, 5, 6)
-  };
-  
-  var easyBtn = document.createElement("button")
-  easyBtn.innerText = "Easy"
-  easyBtn.onclick = function() {
-    initBoard(4, 4, 4)
-  };
-
-  var difficultyNode = document.getElementById('difficulty')
-  difficultyNode.appendChild(hardBtn)
-  difficultyNode.appendChild(medBtn)
-  difficultyNode.appendChild(easyBtn)
+  createDifficultyButton("Hard", 6, 6, 9)
+  createDifficultyButton("Medium", 5, 5, 6)
+  createDifficultyButton("Easy", 4, 4, 4)
 }
 
 function createDifficultyButton(name, rows, cols, numOfMines) {
