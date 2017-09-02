@@ -24,6 +24,8 @@ function createDifficultyButton(name, rows, cols, numOfMines) {
   var button = document.createElement("button")
   button.innerText = name
   button.onclick = function() {
+    lives = 3
+    initLives()
     initBoard(rows, cols, numOfMines)
   };
   var difficultyNode = document.getElementById('difficulty')
