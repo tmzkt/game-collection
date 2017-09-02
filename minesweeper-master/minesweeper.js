@@ -32,6 +32,16 @@ function initDifficulty () {
   difficultyNode.appendChild(easyBtn)
 }
 
+function createDifficultyButton(name, rows, cols, numOfMines) {
+  var bugton = document.createElement("button")
+  bugton.innerText = name
+  bugton.onclick = function() {
+    initBoard(rows, cols, numOfMines)
+  };
+  var difficultyNode = document.getElementById('difficulty')
+  difficultyNode.appendChild(bugton)
+}
+
 function checkForWin () {
   if (board.cells.reduce((x,y) => x && (!y.hidden || (y.isMarked && y.isMine)), true)) {
     displayMessage('You win!')
