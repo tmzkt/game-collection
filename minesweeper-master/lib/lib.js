@@ -100,7 +100,7 @@ function showCell (evt) {
   evt.target.classList.remove('marked')
   if (evt.target.classList.contains('mine')) {
     lives--
-	initLives()
+	initStatus()
     if (lives <= 0) {
         displayMessage('BOOM!')
         revealMines()

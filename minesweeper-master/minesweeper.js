@@ -6,7 +6,7 @@ var difficulty = "Easy"
 
 function startGame () {
   initDifficulty()
-  initLives()
+  initStatus()
   initBoard(4, 4, 4)
 }
 
@@ -16,8 +16,8 @@ function initDifficulty () {
   createDifficultyButton("Easy", 4, 4, 4)
 }
 
-function initLives() {
-  var livesNode = document.getElementById('lives')
+function initStatus() {
+  var livesNode = document.getElementById('status')
   livesNode.innerHTML = "Difficulty: " + difficulty + " Lives remaining: " + lives
 }
 
@@ -27,7 +27,7 @@ function createDifficultyButton(name, rows, cols, numOfMines) {
   button.onclick = function() {
     lives = 3
 	difficulty = name
-    initLives()
+    initStatus()
     initBoard(rows, cols, numOfMines)
   };
   var difficultyNode = document.getElementById('difficulty')
