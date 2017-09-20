@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', startGame)
 
 var board = { cells: [] }
 var lives = 3
+var difficulty = "Easy"
 
 function startGame () {
   initDifficulty()
@@ -17,7 +18,7 @@ function initDifficulty () {
 
 function initLives() {
   var livesNode = document.getElementById('lives')
-  livesNode.innerHTML = "Lives remaining: " + lives
+  livesNode.innerHTML = "Difficulty: " + difficulty + " Lives remaining: " + lives
 }
 
 function createDifficultyButton(name, rows, cols, numOfMines) {
@@ -25,6 +26,7 @@ function createDifficultyButton(name, rows, cols, numOfMines) {
   button.innerText = name
   button.onclick = function() {
     lives = 3
+	difficulty = name
     initLives()
     initBoard(rows, cols, numOfMines)
   };
